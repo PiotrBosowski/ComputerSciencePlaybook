@@ -1,0 +1,25 @@
+watch ifconfig
+watch route -n
+tcpdump -i ens20
+ping
+route add -net 192.168.2.0/24 dev ens20
+ifconfig ens20:3 10.0.1.1
+route del default
+route add default gw 157.158.38.193
+host -a polsl.pl
+host -a polsl.pl 157.158.38.201
+dig nslookup
+host -a gov.pl
+host -a pl
+
+serwery dns: rekurencyjne (polsl: 0.4)
+	     autorytatywne (polsl: 0.1, 0.2, 0.3)
+
+lspci
+lsmod
+lsmod | grep r8169
+
+rmmod r8169 - usuwanie sterownika interfejsu ethernet
+
+insmod r8169
+uname -modprobe r8169

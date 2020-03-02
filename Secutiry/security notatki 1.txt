@@ -1,0 +1,11 @@
+ping - rozpoznanie systemu ttl (63 linux, 127 windows)
+potem nmap -sC -sV -Pn 10.10.10.117
+gobuster - enumeracja stron www
+gobuster -u http://
+kali - gotowe wordlisty
+searchsploit
+metasploit
+linenum.sh
+linuxprivchecker.pys
+ls -R
+steghide -> kali

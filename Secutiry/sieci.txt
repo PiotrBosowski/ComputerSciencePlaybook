@@ -1,0 +1,10 @@
+full duplex - transport pakietow tam i z powrotem odbywa sie za pomoca innej pary przewodow, wiec moze odbywac sie jednoczesnie
+half duplex - ruch moze odbywac sie tylko w jednym kierunku na raz
+
+switch jest madrzejszy od huba - hub zawsze przesyla pakiet wejsciowy na wsyzstkie wyjscia, podczas gdy switch wysyla pakiet prosto do adresata (zapamietuje, jakich odbiorcow ma podpietych do jakiego gniazda); zapobiega kolizjom dzieki umiejetnosci zapisania kolidujacej ramki w pamieci wewnetrznej i wyslaniu jej dopiero po zwolnieniu linii
+
+UTP - skretka nieekranowana - unshielded twisted pair
+
+zeby polaczyc dwa kompy w siec wystarczy skretka tzw. skrosowana - nie potrzeba switcha ani routera
+
+

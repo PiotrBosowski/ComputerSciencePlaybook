@@ -1,0 +1,24 @@
+dekompilacja
+	cff explorer
+	dnSpy
+
+podpisy cyfrowe
+	sigcheck.exe
+
+sprawdzenie zawartosci folderu i plikow konf
+
+analiza uprawnien do aplikacji
+	modyfikacja zawartosci plikow, folderow
+
+
+get-pesecurity
+
+aslr - randomizacja stosu
+dep
+
+process monitor
+resource monitor
+wireshark
+echo mirage
+regshot
+process hacker fajen

@@ -1,0 +1,6 @@
+adb -s emulator-5554 shell
+su
+cd /data/data/pl.bosowski.piotr.tasktimer/databases
+sqlite3 TaskTimer.db
+
+select * from tasks;

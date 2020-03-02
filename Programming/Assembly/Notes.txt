@@ -1,0 +1,239 @@
+x64 - most common asm language
+simd
+self modifying code
+drivers, kernels, operating systems
+
+.code
+SomeFunction proc
+	mov rax, 123
+	ret
+SomeFunction endp
+end
+
+rax - returning register in 64 bits
+
+
+
+REGISTERS:
+rax - returning
+
+00007FF85069114F
+00007FF85069114F
+
+00000041657FD540
+00000041657FD540
+000000DCA1FFD4E0
+
+8086 (16 bits registers):
+	GENERAL PURPOSE (splitted into low byte and high byte):
+		AX
+		BX - need to be saved and restored before end
+		CX - usually counter register
+		DX
+	
+	INDEX REGISTERS:
+		SI - source index
+		DI - destination index
+		BP - BASE POINT (not used for arythmetics)
+		SP - STACK POINT (not used for arythmetics)
+
+	INSTRUCTION POINTER:
+		IP - instruction pointer (program counter)
+
+	SEGMENT RESITERS:
+		CS - //not used anymore
+		DS - //used for operating system
+		ES - //
+		SS - 
+			
+	FLAGS REGISTERS:
+		Flags
+
+80386 (32 bits registers):
+	GENERAL PURPOSE: (WARNING: those regs overlays on AX, BX, CX, DX just like AX overlays AL etc.)
+		EAX
+		EBX
+		ECX
+		EDX
+	
+	INDEX REGS: (WARNING: same as above)
+		ESI - E SOURCE INDEX
+		EDI - E DESTINATION INDEX
+		EBP - E BASE POINT
+		ESP - E STACK POINT
+
+	INSTRUCTION POINTER:
+		EIP
+
+	SEGMENT REGS:
+		FS
+		GS
+
+	FLAGS REGISTERS:
+		eFlags
+		
+
+x64 registers (64 bits):
+	RAX = (32 + EAX = (16 + AX = (AX + AL)))
+	RBX = (32 + EBX = (16 + BX = (BX + BL)))
+	RCX = (32 + ...
+	RDX = ... 
+	RSI = ...
+	RDI = ...
+	RSP = ...
+	RBP = ...
+	RIP = (32 + EIP)
+	R8 = (32 + R8D = (16 + R8W = (8 + R8B))) // D - double word, W - word, B - byte
+	R9 = 
+	R10 = 
+	R11 = 
+	R12 = 
+	R13 = 
+	R14 = 
+	R15 = 
+	RFlags = 
+
+	WARNING: USING INSTRUCTIONS WITH 32B REGS ZEROS THE TOP half OF THE 64B REGS!!!!!
+
+FUNDAMENTAL DATA TYPES X64:
+	integer:
+		byte, word, dword, qword
+
+	floating point:
+		real4, real8, real10 (see IEEE754)
+
+	simd pointers: (single instruction, multiple data)
+		xmmword, ymmword, zmmword
+
+Two's compliment
+
+
+db 56, 32, 53, 65 - db executes machine code
+
+instructions:
+
+	MOV dest, src - copy value to or from register
+	NOP - does nothing (mov rax, rax)
+	LEA dest, src - load effective address
+
+.data
+myBte db 56
+
+.code
+TestFunction proc
+	lea rax, myBte
+
+	mov byte ptr[rax], 7
+
+	ret
+TestFunction endp
+end
+
+
+	ADD reg/mem, reg/mem/imm
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.code
+
+
+; RCX  ,  RDX  ,  R8   ,  R9  , STACK.........................................................................................STACK
+;char *, char *, int   , int  , int        , int         , int              , int               , int    , int         , int
+;input , output, height, width, inputStride, outputStride, inputBitsPerPixel, outputBitsPerPixel, pattern, startingLine, endingLine
+
+
+Transform proc
+	local input: QWORD
+	local output: QWORD
+	local picHei: DWORD
+	local picWid: DWORD
+
+	local inputStride: DWORD
+	local outputStride: DWORD
+	local inputBPP: DWORD
+	local outputBPP: DWORD
+	local pattern: QWORD
+	local startingLine: QWORD
+	local endingLine: QWORD
+
+	mov input, RCX
+	mov output, RDX
+	mov picHei, R8D
+	mov picWid, R9D
+
+	push ebp    
+	mov ebp,esp
+
+	pop RCX
+	mov endingLine, RCX
+	pop RCX
+	mov startingLine, RCX
+	pop RCX
+	pop RCX
+	pop RCX
+	pop RCX
+	pop RCX
+	pop RCX
+
+
+	pop ebp
+	ret
+
+
+Transform endp
+end
+
+
+
+.code
+TestFunc proc
+	push rbp
+	mov rbp, rsp
+
+	mov rax, [rbp+48]
+	mov rax, [rbp+56]
+	mov rax, [rbp+64]
+	mov rax, [rbp+72]
+	mov rax, [rbp+80]
+	mov rax, [rbp+88]
+	mov rax, [rbp+96]
+	mov rax, [rbp+104]
+
+
+	pop rbp
+
+	ret
+TestFunc endp
+end
+
+
+
+
+
+
+
+testing color:
+red    94  5E
+green 158  9E
+blue  172  AC
+
+

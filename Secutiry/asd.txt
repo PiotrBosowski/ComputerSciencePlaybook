@@ -1,0 +1,7 @@
+slides.com/piotrkozowicz/pentests#/
+
+gtfobins
+
+sudo /esr/bin/pico -s /bin/sh
+
+pentestmonkey reverse shell

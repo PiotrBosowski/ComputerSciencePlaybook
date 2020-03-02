@@ -1,0 +1,7 @@
+10.0.0.1 router (admin haslo1)
+10.0.0.2 fileserver
+
+10.0.0.10 switch (admin admin)
+
+haslo wifi:
+ab14248Z374981g59W915a1069

@@ -1,0 +1,63 @@
+biblia tcp/ip tom 1 protokoly
+dokumenty rfc
+http://www.zakon.org/robert/internet/timeline rfc2235
+
+INTERNET
+poczatki: 1969
+siec miala byc odporna na uszkodzenia poszczegolnych wezlow
+TCP/IP - transmission control protocol/internet protocol
+1980: narodziny DNS - domain name system
+1992: milion kompow podlaczonych do internetu
+
+OSI - Open Systems Interconnection Reference Model
+- warstwa powinna byc tworzona, gdy potrzebny jest inny poziom abstrakcji
+- kazda warstwa powinna wykonywac scisle zdefiniowane funkcje
+- funkcje kazdej warstwy powinny byc dobrane w taki sposob, aby minimalizowac przeplyw informacji przez ich interfejsy
+- liczba wartsw powinna byc na tyle duza, by odmienne funkcje bez wyraznej potrzeby nie byly zebrane razem i na tyle mala, by architektura nie stawala sie nieporeczna
+wyszlo tych wartsw 7
+
+1. Warstwa fizyczna (physical layer)
+przesylanie bitow w kanale informacyjnym
+poziomy napiec / barwa i intensywnosc swiatla swiatlowodu
+czas trwania impulsu jednego bitu
+ile przewodow w kablu uzyc
+elektronika, optyka, mechanika
+
+2. Warstwa lacza danych (data link layer)
+MAC - Media Access Control
+warstwa ta odpowiada za poprawnosc przesylu danych (wykrywanie bledow itp.)
+dzielimy dane na ramki
+ramki przesylamy niezaleznie
+jesli ramka zostala uszkodzona, warstwa ta zglasza blad warstwie wyzej(lub nie robi nic i czeka az wyzsze warstwy naprawia)
+
+3. Warstwa sieciowa (network layer)
+kontroluje operacje sieci takie jak ustalanie tras pakietow, rozwiazywanie problemu przepelnienia zlacza, mechanizm kontroli przeplywu(~priorytetyzacja urzadzen)
+rozwiazuje problemy wystepujace przy przechodzeniu z jednej sieci do drugiej (gdzie rozmiar ramki moze byc inny)
+
+4. warstwa transportowa (transport layer)
+przekazuje dane otrzymane z wyzszego poziomu i organizuje je w pakiety odpowiednie dla danej sieci i odwrotnie (uklada otrzymane pakiety w odpowiedniej kolejnosci i przekazuje wyzej)
+warstwa ta moze przesylac strumien danych przez kilka polaczen (aby zwiekszyc przepustowosc)
+
+5. warstwa sesji
+umozliwia uzytkownikowi stworzenie sesji miedzy komputerem zrodlowym a docelowym, np. sesja zdalnego logowania (np. ssh)
+warstwa zapewnia synchronizacje, np. gdy wysylasz plik przez 2h to przy awarii po godzinie warstwa moze zapamietac ile jeszcze zostalo i wznowic wysylanie od tego miejsca
+
+6. warstwa prezentacji
+standardy kodowania znakow, liczb calkowitych, zmiennoprzecinkowych, interpretowanie nadchodzacego strumienia bajtow
+
+7. warstwa aplikacji
+najwyzsza warstwa modelu, zawiera protokoly takie jak telnet (do zdalnego dostepu), smtp (poczta), http
+za ta warstwa kryja sie programy uzywajace tych protokolow
+
+w teorii kazda warstwa komunikuje sie tylko bezposrednio z warstwa ponizej i powyzej - proces enkapsulacji:
+dodanie naglowka, trailera, kodowanie liczb, przekodowywanie znakow, skrocenie pakietu
+
+TCP/IP - transmission control protocol/internet protocol: model 4 warstwowy: 4 ostatnie warstwy OSI
+
+1. warstwa lacza - zdolna do odbierania i wysylania pakietow
+2. warstwa sieciowa - przetwarzanie pakietow, ruch pakietow w sieci, wyznaczanie tras
+3. warstwa transportowa - dzieli strumien bajtow na pakiety, wysyla ponownie zagubione pakiety, scala pakiety w cale pliki
+ - TCP (transmission control protocol): nawiazuje polaczenie, dopiero wtedy przesyla strumieniowo dane, niezawodny, pakiety docieraja w kolejnosci
+ - UDP (user datagram protocol): bezpolaczeniowy, zawodny, szybki (gry, streamowanie obrazu itd.) pakiety docieraja pomieszane, mniej kontroli i obslugi bledow
+4. warstwa aplikacji - protokoly SMTP, FTP, telnet
+

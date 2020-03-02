@@ -1,0 +1,56 @@
+nmap 10.10.10.120 -sC -sV // sC - skrypty defaultowe, sV wersja oprogamowania
+-p- wszytkie porty
+
+/////////////////enumeracje uslug: - information gathering//////////////////// 
+
+dns: dnswalk, dnsenum, dig
+snmp: snmpwalk 
+smb: smbclient, enum4linux, smbmap
+ssl: sslyze
+ssh: sshauditor
+
+metasploit + skrypty nmap (lua)
+
+narzedzia:
+dirsearch, dirbuster, gobuster (doklejanie slow do urla)
+burp -> discover content
+wfuzz (
+burp -> spider (tworzenie mapy strony przez klikanie we wszystkie odnosniki)
+nikto (zwraca konfiguracje serwera)
+slowniki: /usr/share/wordlists/dirbuster/...
+seclist - github
+
+////////////////////////etapy pentestu://///////////////////////////
+1. wywiad offlineowy
+2.
+3. enumeracja i identyfikacja uslug
+4.
+5.
+6.
+7.
+
+www.exploit-db.com
+searchsploit
+metasploit
+qualys/nessus (komercyjne pieniazki)
+uwaga proszem bezmyslnie nie uzywac exploitow :bbbb bo mogom zaszkodzic :b
+nie wrzucac wirusuw na totalwirusa
+
+rodzaje podatnosci:
+unauthenticated RCE
+authenticated RCE
+arbitrary FileUpload/Download
+Information Disclosure
+DOS
+
+
+https://slides.com/piotrkozowicz/pentests
+
+
+
+nmap -sC -sV -vv -p- 10.10.10.107
+nmap -p 389 --script=ldap-search-nse
+
+smbclient --U alice1978 --pw-nt-hash -L //10.10.10.107/alice
+
+get my_private_key.ppk
